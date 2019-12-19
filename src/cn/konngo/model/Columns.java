@@ -1,5 +1,9 @@
 package cn.konngo.model;
 
+/**
+ *  peng@konngo.cn
+ *  2019-12-19
+ */
 public class Columns {
     //字段名
     private String name;

@@ -7,7 +7,12 @@ import cn.konngo.utils.DBHelper;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.ResourceBundle;
 
+/**
+ *  peng@konngo.cn
+ *  2019-12-19
+ */
 public class SearchTablesTool {
     public void search(){
         // 1.获取数据库所有表信息
@@ -52,7 +57,7 @@ public class SearchTablesTool {
             while (rs.next()){
                 Columns c=new Columns();
                 c.setName(rs.getString("field"));
-                c.setType(rs.getString("type"));
+                c.setType(changeType(rs.getString("type")));
                 c.setComment(rs.getString("comment"));
                 list.add(c);
             }
@@ -62,6 +67,24 @@ public class SearchTablesTool {
         }
         return list;
     }
+
+    /**
+     * 将数据库的数据类型更换为JAVA的
+     */
+    private String changeType(String type) {
+        ResourceBundle properteis=ResourceBundle.getBundle("config/type");
+        for (String key:properteis.keySet()) {
+            //判断类型
+            if (type.toUpperCase().equals(key)||type.toUpperCase().contains(key)){
+                type=properteis.getString(key);
+            }
+        }
+        return type;
+    }
+
+
+
+
 
 
 }

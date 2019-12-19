@@ -12,6 +12,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.ResourceBundle;
 
+/**
+ *  peng@konngo.cn
+ *  2019-12-19
+ */
 public class CreateFileTool {
     //生成指定文件
     public void create(ArrayList<Table> tables) {
@@ -46,7 +50,7 @@ public class CreateFileTool {
         File[] files=new File(tempPath).listFiles();
         for (File f:files) {
             String filename=classname+f.getName();
-            path=path+filename;
+            path=path+filename.replace(".ftl","");
             try {
                 Configuration config=new Configuration(Configuration.VERSION_2_3_22);
                 config.setDirectoryForTemplateLoading(f.getParentFile());

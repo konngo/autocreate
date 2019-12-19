@@ -5,6 +5,10 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
+/**
+ *  peng@konngo.cn
+ *  2019-12-19
+ */
 public class DBHelper {
     //获取数据库连接
     public static Connection getConnection(){

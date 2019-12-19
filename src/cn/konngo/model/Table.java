@@ -2,6 +2,10 @@ package cn.konngo.model;
 
 import java.util.ArrayList;
 
+/**
+ *  peng@konngo.cn
+ *  2019-12-19
+ */
 public class Table {
     //表名
     public String name;

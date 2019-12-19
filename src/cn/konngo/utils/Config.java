@@ -3,7 +3,10 @@ package cn.konngo.utils;
 import freemarker.template.Configuration;
 
 import java.util.ResourceBundle;
-
+/**
+ *  peng@konngo.cn
+ *  2019-12-19
+ */
 public class Config {
     //文件生成位置
     public static String FILE_PATH;
