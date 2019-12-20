@@ -14,6 +14,10 @@ import java.util.ResourceBundle;
  *  2019-12-19
  */
 public class SearchTablesTool {
+
+    public static void main(String[] args) {
+
+    }
     public void search(){
         // 1.获取数据库所有表信息
         ArrayList<Table> tables=searchTables();
@@ -74,10 +78,19 @@ public class SearchTablesTool {
     private String changeType(String type) {
         ResourceBundle properteis=ResourceBundle.getBundle("config/type");
         for (String key:properteis.keySet()) {
-            //判断类型
-            if (type.toUpperCase().equals(key)||type.toUpperCase().contains(key)){
-                type=properteis.getString(key);
+            //排除意外
+            // time类型不能使用下面的判断
+            if (type.contains("time")||type.contains("date")||type.contains("TIME")||type.contains("DATE")){
+                if (type.toUpperCase().equals(key)){
+                    type=properteis.getString(key);
+                }
+            }else {
+                //判断类型
+                if (type.toUpperCase().equals(key)||type.toUpperCase().contains(key)){
+                    type=properteis.getString(key);
+                }
             }
+
         }
         return type;
     }

@@ -26,7 +26,7 @@ public class CreateFileTool {
             // 2.创建装载对象
             Map<String,Object> root=this.createRoot(t);
             // 3.生成文件
-            String tempPath="templates/"+Config.TEMPLATE;
+            String tempPath="templates\\"+Config.TEMPLATE;
             this.createTempalteFile(tempPath,Config.FILE_PATH,root);
         }
 
@@ -46,11 +46,20 @@ public class CreateFileTool {
     private void createTempalteFile(String tempPath,String path,Map<String,Object> root) {
         String classname= (String) root.get("classname");
         //遍历指定样式文件夹
-        tempPath=System.getProperty("user.dir")+"/src/"+tempPath;
+        String tmp=tempPath;
+        tempPath=System.getProperty("user.dir")+"\\src\\"+tempPath;
         File[] files=new File(tempPath).listFiles();
         for (File f:files) {
+            //判断是否为文件夹
+            if (f.isDirectory()){
+                new File(path+"\\"+f.getName()).mkdir();
+                createTempalteFile(tmp+"\\"+f.getName(),path+"\\"+f.getName()+"\\",root);
+                continue;
+            }
             String filename=classname+f.getName();
-            path=path+filename.replace(".ftl","");
+            filename=filename.replace(".ftl","");
+            filename=filename.substring(0,1).toUpperCase()+filename.substring(1);
+            path=path+filename;
             try {
                 Configuration config=new Configuration(Configuration.VERSION_2_3_22);
                 config.setDirectoryForTemplateLoading(f.getParentFile());
