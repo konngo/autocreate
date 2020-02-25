@@ -2,6 +2,7 @@ package cn.konngo.tool;
 
 import cn.konngo.model.Columns;
 import cn.konngo.model.Table;
+import cn.konngo.utils.Config;
 import cn.konngo.utils.DBHelper;
 
 import java.sql.Connection;
@@ -29,7 +30,10 @@ public class SearchTablesTool {
     private ArrayList<Table> searchTables() {
         ArrayList<Table> tables=new ArrayList<>();
         Connection conn=DBHelper.getConnection();
-        String sql="select table_name,table_comment from information_schema.tables where TABLE_SCHEMA='codeschool' ";
+
+        String tablename= Config.TABLENAME;
+        String sql="select table_name,table_comment from information_schema.tables where TABLE_SCHEMA='"+tablename+"' ";
+        System.out.println(sql);
         try {
             ResultSet set=conn.createStatement().executeQuery(sql);
             while (set.next()){

@@ -14,6 +14,7 @@ public class Config {
     public static String TEMPLATE;
 
     public static String BASEPACKAGE;
+    public static String TABLENAME;
 
 
     public static void init() {
@@ -21,6 +22,8 @@ public class Config {
         FILE_PATH=properteis.getString("FILE_PATH");
         TEMPLATE=properteis.getString("TEMPLATE");
         BASEPACKAGE=properteis.getString("basepackage");
+        TABLENAME=properteis.getString("tablename");
+
     }
 
 }
