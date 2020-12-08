@@ -37,12 +37,12 @@ public class ${classname?cap_first}Dao  {
         try {
             List<${classname?cap_first}Bean> list=dbUtil.select(sql,transforUtil,${classname?cap_first}Bean.class,id);
             if (list.size()>0){
-                ${classname?cap_first}Bean=list.get(0);
+                ${classname?lower_case}Bean=list.get(0);
             }
         }catch (Exception e){
              e.printStackTrace();
         }
-        return ${classname?cap_first}Bean;
+        return ${classname?lower_case}Bean;
     }
 
     // 删除${remark}信息
