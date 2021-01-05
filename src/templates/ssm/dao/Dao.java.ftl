@@ -2,34 +2,39 @@ package ${basepackage}.dao;
 
 
 import ${basepackage}.entity.${classname?cap_first}Entity;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+@Repository
+/**
+  *  ${remark}持久层 数据库操作
+  */
 public interface ${classname?cap_first}Dao {
 
     /**
-    *  查询所有
+    *  查询所有${remark}
     */
     List<${classname?cap_first}Entity> list();
 
     /**
-    * 根据id查询
+    * 根据id查询${remark}
     */
-    ${classname?cap_first}Entity select();
+    ${classname?cap_first}Entity select(int id);
 
     /**
-    * 删除
+    * 删除${remark}
     */
-    void delect(int id);
+    int delete(int id);
 
     /**
-    * 更新
+    * 更新${remark}
     */
-    void update(${classname?cap_first}Entity ${classname?uncap_first}Entity);
+    int update(${classname?cap_first}Entity ${classname?uncap_first}Entity);
 
     /**
-    * 插入
+    * 插入${remark}
     */
-    void insert(${classname?cap_first}Entity ${classname?uncap_first}Entity);
+    int insert(${classname?cap_first}Entity ${classname?uncap_first}Entity);
 
 }
