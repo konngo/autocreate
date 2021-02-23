@@ -31,8 +31,8 @@
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
             <#list columns as col>
-                    <if test="${col["name"]?lower_case}!=null" ><#noparse>#{</#noparse>
-                        ${col["name"]?lower_case}},</if>
+                <if test="${col["name"]?lower_case}!=null" ><#noparse>#{</#noparse>
+                    ${col["name"]?lower_case}},</if>
             </#list>
         </trim>
     </insert>
@@ -42,7 +42,7 @@
         <set>
             <trim  suffixOverrides=",">
             <#list columns as col>
-                    <if test="${col["name"]?lower_case}!=null" >${col["name"]?lower_case}=<#noparse>#{</#noparse>${col["name"]?lower_case}},</if>
+                <if test="${col["name"]?lower_case}!=null" >${col["name"]?lower_case}=<#noparse>#{</#noparse>${col["name"]?lower_case}},</if>
             </#list>
             </trim>
         </set>
